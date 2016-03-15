@@ -10,19 +10,20 @@
 
 	<script src="js/jquery.js"></script> 
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/myquery.js"></script>
 	<script src="js/validator.js"></script>
 	<script src="js/validator.min.js"></script>
-	<script src="js/Myquery.js"></script>
+	
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" href="css/animate.css">
 </head>
 <body>
+	<h1 style= "text-align: center;">UTN - Home</h1>
+	
 
-	<div class= container>
-			
+	<div class= "container homeForm" style= "padding: 0 20%; display: none;"  >
 		<form data-toggle="validator" role="form">
 		<div class="form-group">
 		    <label for="inputName" class="control-label">Name</label>
@@ -36,6 +37,28 @@
 		    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			<div class="help-block with-errors">A-z</div>
 		</div>
+
+			<div class="form-group">
+		    <div class="radio">
+		      <label>
+		        <input type="radio" name="underwear" required>
+		        Male
+		      </label>
+		    </div>
+		    <div class="radio">
+		      <label>
+		        <input type="radio" name="underwear" required>
+		        Female
+		      </label>
+		    </div>
+		  </div>
+				
+			<select class="form-control">
+			  <option>Bs Aires</option>
+			  <option>Avellaneda</option>
+			  <option>Lanus</option>
+			</select>
+
 
 		  <div class="form-group">
 		    <label for="inputEmail" class="control-label">Email</label>
@@ -56,6 +79,9 @@
 		    </div>
 		    </div>
 		  </div>
+
+			
+
 	</div>
 </body>
 </html>
