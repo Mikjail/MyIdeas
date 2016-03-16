@@ -4,5 +4,11 @@ body{
 	background-image: url(Mik.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	
+}
+
+.homeForm{
+	margin-top: 5%;
+	padding: 0 10%;
+	background-color: #DDE0F3;
+
 }
