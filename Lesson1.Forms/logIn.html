@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>First Form</title>
+	<title>Login Form</title>
 	<meta charset="utf-8">
 	<meta name="description" content="Sign In">
 	<meta name="keywords" content="Home">
@@ -21,14 +21,14 @@
 </head>
 <body>
 
-	<div class= "container homeForm" >
-		<h1 style= "text-align: center;">UTN - Sign Up</h1>
+	<div class= "container signForm">
+		<h1 style= "text-align: center;">UTN - Login</h1>
 		<hr>
 		<form data-toggle="validator" role="form">
 			
 			<div class="form-group">
 			    <label for="inputName" class="control-label">Name</label>
-			    <input type="text" class="form-control" id="inputName" pattern="^[A-z]{1,}$" maxlength="15" placeholder="First Name*" data-error="We only accept a-Z names!" required>
+			    <input type="text" class="form-control" id="inputName" pattern="^[A-z]{1,}$" maxlength="15" placeholder="First Name*" data-error="We only accept a-Z names!"required>
 				<div class="help-block with-errors">A-z</div>
 			</div>
 		
@@ -44,7 +44,11 @@
 			<div class="form-group">
 			 	<input class="col-md-1" type="checkbox" class="form-control" id="checkRegister" name="agree" value="Agree">Remember my password
 			</div>
-		
+			
+			<button type="button" class="col-md-offset-5 btn btn-success">Login</button>
+			<br> 
+			<br>
+			<a href="#" class="col-md-12" style="text-align: center;">Forgot my password</a>
 
 		</form>							
 	</div>

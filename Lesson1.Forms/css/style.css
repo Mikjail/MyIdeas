@@ -4,11 +4,17 @@ body{
 	background-image: url(Mik.png);
 	background-repeat: no-repeat;
 	background-position: center;
+	background-color: #CFCBCB;
 }
 
 .homeForm{
 	margin-top: 5%;
 	padding: 0 10%;
-	background-color: #DDE0F3;
-
+	background-color: #EEEEEE;
+}
+.signForm{
+	margin-top: 5%;
+	width: 30%;
+	padding: 0 5%;
+	background-color: #EEEEEE;
 }
