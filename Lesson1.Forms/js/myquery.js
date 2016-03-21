@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
-	$('.homeForm, .signForm').animate({
+	$('.signUpForm').animate({
 		opacity: '0.95'
-		}, 
-		3000);
+		},	3000);
 
 });
