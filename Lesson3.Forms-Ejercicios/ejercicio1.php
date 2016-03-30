@@ -14,8 +14,12 @@
 	
 </head>
 <body>
+<div class="container task">
+	<h2>Ejericio1</h2>
+	<p>sdasdasd</p>
+</div>
 	<div class="container ejercicio col-md-4 col-md-offset-4">
-	<h1>Ejercicio 1</h1>
+	
 		<form class="col-md-10 col-md-offset-1" method="POST" style="text-align: center">
 			
 			<div class="form-group">
@@ -33,16 +37,16 @@
 		    	<input type="text" name="numeroTres" class="form-control" placeholder="Producto Tres*">
 			</div>
 				
-			<div class="form-group">
+			<div class="form-group col-md-6 col-md-offset-3">
 				<button class="btn btn-default" name="Suma" value"Suma" >Sumar</button>
 			</div>	
 			
-			<div class="form-group">
+			<div class="form-group col-md-6 col-md-offset-3">
 				<button class="btn btn-default" name="Promedio" value"Promedio">Promedio</button>
 			</div>
 			
-			<div class="form-group">
-				<button class="btn btn-default" name="PrecioFinal" value"PrecioFinal">Promedio</button>
+			<div class="form-group col-md-6 col-md-offset-3">
+				<button class="btn btn-default" name="PrecioFinal" value"PrecioFinal">PrecioFinal</button>
 			</div>
 		
 		</form>

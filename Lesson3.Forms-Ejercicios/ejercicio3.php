@@ -14,26 +14,31 @@
 	
 	<div class="container ejercicio col-md-4 col-xs-6 col-md-offset-4 col-xs-offset-4">
 		<h1>Ejercicio 3</h1>
-		<form method="POST" style="text-align: center;">
-			<div class="form-group">
-				<label for="Largo">Largo</label>
-				<br>
-				<input type="text" placeholder="Largo del terreno" name="largo">
-			</div>
+			<form method="POST" style="text-align: center;">
 
-			<div class="form-group">
-				<button class="btn btn-default" name="rectangulo" value="farenheit">Farenheit</button>
-			</div>
-			<div class="form-group">
-				<button class="btn btn-default" name="alambre" value="alambre">Centigrados</button>
-			</div>
-			
-		</form>
-			<div class="animated bounceInLeft"><?php include_once("calcEjercicio3.php")
-			?>
-			</div>
+				<div class="form-group">
+					<label for="Largo">Grados</label>
+					<br>
+					<input type="text" placeholder="grados*" name="grados">
+				</div>
 
+				<div class="form-group col-md-6 col-md-offset-3">
+					<button class="btn btn-default" name="farenheit" value="farenheit">Farenheit</button>
+				</div>
+
+				<div class="form-group col-md-6 col-md-offset-3">
+					<button class="btn btn-default" name="centigrados" value="centigrados">Centigrados</button>
+				</div>
+			</form>
+
+	<div class="animated bounceInLeft clear">
+					<h3>
+					<?php include_once("calcEjercicio3.php")
+				?>
+					</h3>
 	</div>
+	</div>	
+	
 	
 </body>
 </html>

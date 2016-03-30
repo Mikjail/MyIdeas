@@ -1,7 +1,10 @@
 <?php 
-		if (isset($_POST["farenheit"]) || isset($_POST["grados"])){
-			$farenehit=$_POST["farenheit"];
-			$grados=$_POST["grados"];
+
+		if (isset($_POST["farenheit"]) || isset($_POST["centigrados"])){
+			$grados= $_POST["grados"];
 		
-		echo $grados." y ". $farenheit;
-}
+			if(isset($_POST["centigrados"])){
+				echo $grados;
+			}
+
+		}
