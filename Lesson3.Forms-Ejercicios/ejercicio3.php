@@ -29,7 +29,7 @@
 			</div>
 			
 		</form>
-			<div class="animated bounceInLeft"><?php include_once("calcEjercicio2.php")
+			<div class="animated bounceInLeft"><?php include_once("calcEjercicio3.php")
 			?>
 			</div>
 
