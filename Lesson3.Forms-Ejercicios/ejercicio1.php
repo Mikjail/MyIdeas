@@ -14,6 +14,10 @@
 	
 </head>
 <body>
+	<?php 
+	include_once("menu.php")
+	 ?>
+	 
 	<div class="container task">
 		<h2>Ejercicio 1</h2>
 		<h3>Para el departamento de facturación</h3> 

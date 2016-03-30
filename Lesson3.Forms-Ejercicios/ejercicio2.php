@@ -11,7 +11,9 @@
 	<script src="js/jquery-2.2.2.min"></script>
 </head>
 <body>
-	
+	<?php 
+	include_once("menu.php")
+	 ?>
 	<div class="container task">
 		<h2>Ejercicio 2</h2>
 		<h3>Para el departamento de Construcción</h3> 
