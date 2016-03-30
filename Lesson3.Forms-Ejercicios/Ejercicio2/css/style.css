@@ -1,0 +1,14 @@
+.ejercicio{
+	
+	background-color: #C8C1C1;
+	color: #000000;
+}
+.btn-default{
+	width: 80%;
+	background-color: #B83838;
+	color: #FFFFFF;
+}
+
+h1,h2,h3,h4,h5{
+	text-align: center;
+}
