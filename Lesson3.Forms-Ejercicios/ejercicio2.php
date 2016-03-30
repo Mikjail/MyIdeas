@@ -42,7 +42,7 @@
 				<button class="btn btn-default" name="materiales" value="materiales">Calcular Materiales Contrapiso</button>
 			</div>
 		</form>
-			<div class="animated bounceInLeft"><?php include_once("calculos.php")
+			<div class="animated bounceInLeft"><?php include_once("calcEjercicio2.php")
 			?>
 			</div>
 
