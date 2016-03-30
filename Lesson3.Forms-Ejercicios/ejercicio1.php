@@ -14,10 +14,15 @@
 	
 </head>
 <body>
-<div class="container task">
-	<h2>Ejericio1</h2>
-	<p>sdasdasd</p>
-</div>
+	<div class="container task">
+		<h2>Ejercicio 1</h2>
+		<h3>Para el departamento de facturación</h3> 
+		<ul>
+			<li><strong>Ingresar tres precios de productos y mostrar la suma de los mismos.</strong></li>
+			<li><strong>Ingresar tres precios de productos y mostrar el promedio de los mismos.</strong></li>
+			<li><strong>ingresar tres precios de productos y mostrar precio final (más IVA 21%).</strong></li>
+		</ul>
+	</div>
 	<div class="container ejercicio col-md-4 col-md-offset-4">
 	
 		<form class="col-md-10 col-md-offset-1" method="POST" style="text-align: center">
