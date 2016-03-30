@@ -48,7 +48,7 @@
 			</div>
 
 		</form>
-
+		<h2>Resultado:</h2>
 		<div class="animated bounceInLeft clear">
 			<h3>
 				<?php include_once("calcEjercicio3.php"); ?>
