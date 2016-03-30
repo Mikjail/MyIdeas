@@ -4,22 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Ejercicio1</title>
 
-	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
-
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/myquery.js"></script>
 	
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-2.2.2.min"></script>
 	
 </head>
 <body>
 	<div class="container ejercicio col-md-4 col-md-offset-4">
 	<h1>Ejercicio 1</h1>
-		<form method="POST" style="text-align: center">
+		<form class="col-md-10 col-md-offset-1" method="POST" style="text-align: center">
 			
 			<div class="form-group">
 				<label for="exampleInputName2">Producto Uno:</label>
