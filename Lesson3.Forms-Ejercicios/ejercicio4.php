@@ -60,9 +60,17 @@
 						  ?> 
 					</select>
 			</div>
-
+			
 			<div class="form-group" style="text-align: center;">
-				<button class="btn btn-default" name="calcPrecio" value="calcPrecio">Calcular precio</button>
+				<label for="Largo"><h3>Cantidad de Lamparas</h3></label>
+					<select name="listLampara">
+						 <option value="ArgentinaLuz">ArgentinaLuz</option>
+						 <option value="pirulito">Pirulito</option>
+						 <option value="FelipeLamparas">FelipeLamparas</option>
+					</select>
+			</div>
+			<div class="form-group" style="text-align: center;">
+				<button class="btn btn-default" name="calcPrecio" value="calcPrecio">Calcular</button>
 			</div>
 			
 			<hr>
@@ -78,8 +86,8 @@
 			</div>
 			
 			<div class="form-group" style="margin-right: 15%;">
-				<label for="Radio"><h3>Total</h3></label>
-				<input type="text" placeholder="Total"name="radio">
+				<label for="Total"><h3>Total</h3></label>
+				<input type="text" placeholder="Total"name="total" value="total">
 			</div>
 
 
