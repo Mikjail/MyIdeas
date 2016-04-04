@@ -14,6 +14,8 @@
 	<?php 
 	include_once("menu.php")
 	 ?>
+
+
 	<div class="container task">
 		<h2>Ejercicio 4</h2>
 		<h3>Para el departamento de iluminación</h3> 
@@ -49,47 +51,56 @@
 	<div class="container ejercicio col-md-4 col-xs-6 col-md-offset-4 col-xs-offset-4">
 		
 		<form method="POST" style="text-align: right;">
-
+ 
 			<div class="form-group" style="text-align: center;">
-				<label for="Largo"><h3>Cantidad de Lamparas</h3></label>
+				<label for="Cantidad"><h3>Cantidad de Lamparas</h3></label>
 					<select name="listLampara">
-						 <?php 
+
+						 
+						  <?php 
 						 		for ($i=0; $i < 100; $i++) { 
-						 			echo "<option value=".$i.">".$i."</option>";
+						 		echo "<option name='lista' value=".$i.">".$i."</option>";
 						 		}
 						  ?> 
+					</select> 
+			</div>
+			
+			<div class="form-group" style="text-align: center;">
+				<label for="Largo"><h3>Marca</h3></label>
+					<select name="marca">
+						 <option value="ArgentinaLuz">ArgentinaLuz</option>
+						 <option value="pirulito">Pirulito</option>
+						 <option value="FelipeLamparas">FelipeLamparas</option>
 					</select>
 			</div>
-
 			<div class="form-group" style="text-align: center;">
-				<button class="btn btn-default" name="calcPrecio" value="calcPrecio">Calcular precio</button>
+				<button class="btn btn-default" name="calcPrecio" value="calcPrecio">Calcular</button>
 			</div>
 			
 			<hr>
 
 			<div class="form-group" style="margin-right: 15%;">
 				<label for="Precio"><h3>Precio Unitario</h3></label>
-				<input type="text" placeholder="Precio unitario" name="precio">
+				<input type="text" placeholder="Precio unitario" name="precio" value=35> 
 			</div>
-			
+
+			<!-- 
 			<div class="form-group" style="margin-right: 15%;">
 				<label for="Descuento"><h3>Descuento</h3></label>
-				<input type="text" placeholder="Descuento"name="radio">
+				<input type="text" placeholder="Descuento" name="descuento">
 			</div>
 			
 			<div class="form-group" style="margin-right: 15%;">
-				<label for="Radio"><h3>Total</h3></label>
-				<input type="text" placeholder="Total"name="radio">
-			</div>
-
-
-			
-		</form>
-
+				<label for="Total"><h3>Total</h3></label>
+				<input type="text" placeholder="Total"name="total">
+			</div> -->
 		<div class="animated bounceInLeft ">
 			<?php include_once("calcEjercicio4.php") ?>
 		</div>
 
+		</form>
+
+		
 	</div>
 	
 </body>
