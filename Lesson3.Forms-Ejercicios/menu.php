@@ -19,6 +19,9 @@
                     <li>
                         <a href="ejercicio3.php">Ejercicio 3</a>
                     </li>
+                    <li>
+                        <a href="ejercicio4.php">Ejercicio 4</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
