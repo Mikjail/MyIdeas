@@ -10,7 +10,7 @@
 				echo number_format((float)$centigrados, 2, '.', '');
 			}
 			else{
-				echo  number_format((float)$fahrenheit, 2, '.', '');;
+				echo  number_format((float)$fahrenheit, 2, '.', '');
 			}
 
 		}
