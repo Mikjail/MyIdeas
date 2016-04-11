@@ -9,7 +9,5 @@
 			$city = $_POST["city"];
 			$email = $_POST["email"];
 			$password = $_POST["password"];
-
-
 		}
  ?>
