@@ -33,9 +33,24 @@
 		var_dump($nuevaFabrica);
 		echo "<br>";
 		$nuevaFabrica->AgregarEmpleado($nuevo);
-		$nuevaFabrica->toString(); 
+
+		$nuevaFabrica->AgregarEmpleado($nuevo2);
+
+		$nuevaFabrica->AgregarEmpleado($nuevo2);
+		
+		$nuevaFabrica->AgregarEmpleado($nuevo3);
 
 
+		echo $nuevaFabrica->toString(); 
+
+		$nuevaFabrica->EliminarEmpleados($nuevo2);
+
+
+		$nuevaFabrica->EliminarEmpleados($nuevo3);
+
+		echo $nuevaFabrica->toString(); 
+
+		$nuevaFabrica->EliminarEmpleadosRepetidos();
 
 
  	?>

@@ -21,29 +21,43 @@ class Fabrica {
 		$total;
 
 		foreach ($_empleados as $empleados) {
-			$total += $empleados->_sueldo;
+			$total += $empleados->getSueldo();
 			return true; 
 		}
 	}
 
 	public function EliminarEmpleados($persona){
 	
-		unset($this->_empleados[$presona->dni]);
-		return true;
+		$key = array_search($persona, $this->_empleados);	
+		if($key== false){
+			return false;
+		}
+		else{
+			unset($this->_empleados[$key]);
+		}
 	}
 	
 
 	public function EliminarEmpleadosRepetidos(){
-		foreach ($_empleados as $empleado) {
-			# code...
-		}
+			
+		//Before
+		var_dump($this->_empleados);
+		echo "<hr>";
+
+
+		$this->_empleados = array_unique($this->_empleados);
+		
+		//After
+		var_dump($this->_empleados);
+		
 	}
 
 	public function ToString(){
-		echo "Razon Social: ".$this->_razonSocial."<br>";
+		$retorno =  "Razon Social: ".$this->_razonSocial."<br>";
 		foreach ($this->_empleados as $empleado) {
-			echo $empleado->ToString();
+			$retorno .= $empleado->ToString();
 		}
+		return $retorno;
 	}
 }
 
