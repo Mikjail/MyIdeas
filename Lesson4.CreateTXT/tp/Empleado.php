@@ -28,10 +28,9 @@ include("Persona.php");
 
 		public function ToString(){
 
-
 			return  parent::ToString().
-					"Legajo: ".$this->_legajo."<br>".
-					"Sueldo: ".$this->_sueldo;
+					/*"Legajo: ".*/$this->_legajo."<br>".
+					/*"Sueldo: ".*/$this->_sueldo;
 		}
 	}
 

@@ -33,10 +33,10 @@
 	}
 
 	public function ToString(){
-		return 	"<br>Nombre: ".$this->nombre."<br>".
-				"Apellido: ".$this->apellido."<br>".
-			   	"Dni: ".$this->dni."<br>".
-			   	"Sexo: ".$this->sexo."<br>";
+		return 	/*"<br>Nombre: ".*/$this->nombre."<br>".
+				/*"Apellido: ".*/$this->apellido."<br>".
+			   	/*"Dni: ".*/$this->dni."<br>".
+			   	/*"Sexo: ".*/$this->sexo."<br>";
 	}
 	
 }
