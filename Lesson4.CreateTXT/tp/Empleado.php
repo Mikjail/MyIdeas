@@ -3,6 +3,7 @@ include("Persona.php");
   class Empleado extends Persona{
 		private $_legajo;
 		private $_sueldo;
+		private $_path;
 
 
 		//Construct
@@ -22,16 +23,23 @@ include("Persona.php");
 			return $this->_sueldo;
 		}
 
+		public function getPath(){
+			
+		}
+
 		public function Hablar(string $hablar){
 			parent::Hablar();
 		}
 
 		public function ToString(){
 
-
 			return  parent::ToString().
-					"Legajo: ".$this->_legajo."<br>".
-					"Sueldo: ".$this->_sueldo;
+					/*"Legajo: ".*/$this->_legajo."<br>".
+					/*"Sueldo: ".*/$this->_sueldo."<br>";
+		}
+
+		public function setPath($path){
+
 		}
 	}
 

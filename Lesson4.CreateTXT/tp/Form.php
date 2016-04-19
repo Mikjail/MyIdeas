@@ -24,8 +24,8 @@
 			
 		<hr>
 		<div class="col-md-6">
-	
-		<form data-toggle="validator" role="form" action="Administracion.php" method="POST">
+
+		<form data-toggle="validator" role="form" action="Administracion.php" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
 		    <label for="inputName" class="control-label">Name</label>
 		    <input type="text" name="Nombre" class="form-control" id="inputName" pattern="^[A-z]{1,}$" maxlength="15" placeholder="First Name*" data-error="We only accept a-Z names!" required>
@@ -72,6 +72,14 @@
 		      </label>
 		    </div>
 		  </div>
+
+		<div class="form-group">
+		    <label for="file" class="control-label">Foto</label>
+			<input type="hidden" name="MAX_FILE_SIZE" value="3000"/>
+		    <input type="file" name="Foto" class="form-control" id="inputFile" data-error="We only accept numbers!" required/>
+		    <div class="help-block with-errors">Max 1048576</div>
+		</div>
+		
 
 			<button type="submit" class="col-md-offset-11 btn btn-success">SignUp</button>
 		</div>
