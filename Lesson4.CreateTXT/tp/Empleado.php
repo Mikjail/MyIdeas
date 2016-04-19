@@ -5,9 +5,7 @@ include("Persona.php");
 		private $_sueldo;
 
 
-
-		//Constructor
-
+		//Construct
 		public function __construct($nombre, $dni, $apellido, $sexo, $legajo, $sueldo){
 			parent::__construct($nombre, $dni, $apellido, $sexo);
 			$this->_legajo = $legajo;

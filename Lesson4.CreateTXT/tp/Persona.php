@@ -1,31 +1,31 @@
 <?php
  class Persona {
 
-	protected $_apellido;
-	protected $_dni;
-	protected $_nombre;
-	protected $_sexo;
+	protected $apellido;
+	protected $dni;
+	protected $nombre;
+	protected $sexo;
 
 	public function __construct($nombre, $dni, $apellido, $sexo){
 
-		$this->_nombre = $nombre;
-		$this->_dni = $dni;
-		$this->_apellido = $apellido;
-		$this->_sexo = $sexo;
+		$this->nombre = $nombre;
+		$this->dni = $dni;
+		$this->apellido = $apellido;
+		$this->sexo = $sexo;
 
 	}
 
 	public function getApellido(){
-		return $this->_apellido;	
+		return $this->apellido;	
 	}
 	public function getDni(){
-		return $this->_dni;	
+		return $this->dni;	
 	}
 	public function getNombre(){
-		return $this->_nombre;	
+		return $this->nombre;	
 	}
 	public function getSexo(){
-		return $this->_sexo;	
+		return $this->sexo;	
 	}
 
 	public function Hablar(string $idioma){
@@ -33,10 +33,10 @@
 	}
 
 	public function ToString(){
-		return 	"Nombre: ".$this->_nombre."<br>".
-				"Apellido: ".$this->_apellido."<br>".
-			   	"Dni: ".$this->_dni."<br>".
-			   	"Sexo: ".$this->_sexo."<br>";
+		return 	"<br>Nombre: ".$this->nombre."<br>".
+				"Apellido: ".$this->apellido."<br>".
+			   	"Dni: ".$this->dni."<br>".
+			   	"Sexo: ".$this->sexo."<br>";
 	}
 	
 }
