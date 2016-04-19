@@ -23,6 +23,10 @@ include("Persona.php");
 			return $this->_sueldo;
 		}
 
+		public function getPath(){
+			
+		}
+
 		public function Hablar(string $hablar){
 			parent::Hablar();
 		}
@@ -32,6 +36,10 @@ include("Persona.php");
 			return  parent::ToString().
 					/*"Legajo: ".*/$this->_legajo."<br>".
 					/*"Sueldo: ".*/$this->_sueldo."<br>";
+		}
+
+		public function setPath($path){
+
 		}
 	}
 
