@@ -39,7 +39,7 @@ include("Persona.php");
 		}
 
 		public function setPath($path){
-
+			$this->_path = $path;
 		}
 	}
 

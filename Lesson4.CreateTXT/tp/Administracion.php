@@ -20,6 +20,7 @@
 	 $sueldo = (double)$_POST["Sueldo"];
      $tipoExtensionObtenida = explode('.', $_FILES['Foto']['name']);
 	 $tipoDatoObtenido = $_FILES['Foto']['type'];
+	 $ruta = $_POST['Foto']['name'];
 
 
 	//VALIDO QUE ESTEN LOS DATOS CORRECTOS.
@@ -36,7 +37,7 @@
 	 }
 
 	 //VALIDO QUE EL ARCHIVO YA SE HAYA CARGADO.
-	if (file_exists("archivosTP4/".$apellido.$nombre."_.".$tipoExtensionObtenida[1])) {
+	if (file_exists("archivosTP4/".$apellido."-".$nombre."_.".$tipoExtensionObtenida[1])) {
 			$errorCargaArchivo= true;
 			echo "Los datos que esta intentado cargar ya existen";
 	}
@@ -67,6 +68,11 @@
 		$linea = $empleado->toString()."\n";
 		fwrite($archivo, $linea);
 		fclose($archivo);	
+
+
+		$archivo2 = fopen("archivosTP4/".$apellido."-".$nombre.$tipoExtensionObtenida[1], "w");
+		$linea = $
+
 
 		echo "<a href='Mostrar.php'>Los datos fueron enviados!</a>" ;
 	}	
