@@ -1,18 +1,15 @@
 <?php  include("administracion.php");
 
-$archivo = fopen("archivosTP3/empleados.txt");
+$archivo = fopen("archivosTP3/empleados.txt", "r");
+$listaEmpleados = array();
+
+
 while(!feof($archivo)){
 	$linea = fgets($archivo);
 	$empleado = explode("<br>", $linea);
 	
-	$empleado[0] = trim($empleado[0]);
-
-	if($empleado[0]!=""){
-		$listaEmpleados[]=$empleado[];
-	}
-
-	fclose($archivo);
-
+	if ($empleado[0] != "") {
+	
 	 $nombre= $empleado[0];
 	 $apellido = $empleado[1];
 	 $dni = (int)$empleado[2];
@@ -20,7 +17,13 @@ while(!feof($archivo)){
 	 $legajo = (int)$empleado[4];
 	 $sueldo = (double)$empleado[5];
 
-	$muestroEmpleado = new Empleado($nombre, $dni, $apellido, $sexo, $legajo, $sueldo);
-		
-	echo $muestroEmpleado->toString();
+	 	 $listaEmpleados[] = new Empleado($nombre, $dni, $apellido, $sexo, $legajo, $sueldo);
+	}
+
 }
+	fclose($archivo);
+
+	foreach ($listaEmpleados as $lista) {
+		
+		echo $lista->toString();
+	}
