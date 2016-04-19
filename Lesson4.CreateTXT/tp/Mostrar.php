@@ -1,4 +1,6 @@
-<?php  include("administracion.php");
+<?php  
+
+include("administracion.php");
 
 $archivo = fopen("archivosTP3/empleados.txt", "r");
 $listaEmpleados = array();
@@ -6,7 +8,16 @@ $listaEmpleados = array();
 
 
 
-	echo "<table border='1 px solid black'><tr><th>Nombre</th><th>Apellido</th><th>Dni</th><th>Sexo</th><th>Legajo</th><th>Sueldo</th></tr>";
+	echo "<table border='1 px solid black'>
+	<tr>
+	<th>Nombre</th>
+	<th>Apellido</th>
+	<th>Dni</th>
+	<th>Sexo</th>
+	<th>Legajo</th>
+	<th>Sueldo</th>
+	<th>Imagen</th>
+	</tr>";
 
 while(!feof($archivo)){
 	$linea = fgets($archivo);
@@ -20,10 +31,12 @@ while(!feof($archivo)){
 	 $sexo = $empleado[3];
 	 $legajo = (int)$empleado[4];
 	 $sueldo = (double)$empleado[5];
+	 $path = $empleado[6];
 
-	 echo "<tr><td>$nombre</td><td>$apellido</td><td>$dni</td><td>$sexo</td><td>$legajo</td><td>$sueldo</td>";
-	 	 $listaEmpleados[] = new Empleado($nombre, $dni, $apellido, $sexo, $legajo, $sueldo);
+	 echo "<tr><td>$nombre</td><td>$apellido</td><td>$dni</td><td>$sexo</td><td>$legajo</td><td>$sueldo</td><td><img src='$path'></td>";
+	 	 $listaEmpleados[] = new Empleado($nombre, $dni, $apellido, $sexo, $legajo, $sueldo, $path);
 	}
+	echo "</table>";
 
 }
 	fclose($archivo);

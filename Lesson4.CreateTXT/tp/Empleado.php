@@ -7,10 +7,11 @@ include("Persona.php");
 
 
 		//Construct
-		public function __construct($nombre, $dni, $apellido, $sexo, $legajo, $sueldo){
+		public function __construct($nombre, $dni, $apellido, $sexo, $legajo, $sueldo, $path){
 			parent::__construct($nombre, $dni, $apellido, $sexo);
 			$this->_legajo = $legajo;
-			$this->_sueldo = $sueldo; 
+			$this->_sueldo = $sueldo;
+			$this->_path = $path; 
 		}
 
 		//Metodos
@@ -24,7 +25,7 @@ include("Persona.php");
 		}
 
 		public function getPath(){
-			
+			return $this->_path;
 		}
 
 		public function Hablar(string $hablar){
@@ -35,7 +36,8 @@ include("Persona.php");
 
 			return  parent::ToString().
 					/*"Legajo: ".*/$this->_legajo."<br>".
-					/*"Sueldo: ".*/$this->_sueldo."<br>";
+					/*"Sueldo: ".*/$this->_sueldo."<br>".
+					/*"Ruta: ". */$this->_path."<br>";
 		}
 
 		public function setPath($path){

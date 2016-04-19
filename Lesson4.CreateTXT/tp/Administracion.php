@@ -20,10 +20,10 @@
 	 $sueldo = (double)$_POST["Sueldo"];
      $tipoExtensionObtenida = explode('.', $_FILES['Foto']['name']);
 	 $tipoDatoObtenido = $_FILES['Foto']['type'];
-	 $ruta = $_POST['Foto']['name'];
+	 $path = $_FILES['Foto']['tmp_name'];
 
 
-	//VALIDO QUE ESTEN LOS DATOS CORRECTOS.
+	/************************************************************VALIDACIONES***************************************************/
 
 	for ($j=0; $j < sizeof($tipoDatosRequerido[0]); $j++) { 
 	 
@@ -37,7 +37,7 @@
 	 }
 
 	 //VALIDO QUE EL ARCHIVO YA SE HAYA CARGADO.
-	if (file_exists("archivosTP4/".$apellido."-".$nombre."_.".$tipoExtensionObtenida[1])) {
+	if (file_exists("archivosTP3/fotos/".$apellido."-".$nombre."_.".$tipoExtensionObtenida[1])) {
 			$errorCargaArchivo= true;
 			echo "Los datos que esta intentado cargar ya existen";
 	}
@@ -59,25 +59,38 @@
 	}
 	fclose($archivo);
 
+/*******************************************************************DATA ENTRY**********************************************************/
 
+	//EN CASO DE NO HABER ERRORES SE VAN A CREAR LAS EXTENSIONES
 	if (!$errorCargaArchivo) {
-		//CREO LA INSTANCIA DE EMPLEADO
-		$empleado = new Empleado($nombre, $dni, $apellido, $sexo, $legajo, $sueldo);
 		
-		$archivo=fopen("archivosTP3/empleados.txt", "a");
+
+		//CREO LAS RUTAS DONDE SE GUARDARAN LOS ARCHIVOS
+		$urlTxt= "archivosTP3/empleados.txt";
+		$urlFoto= "archivosTP3/fotos/".$apellido."-".$nombre.".".$tipoExtensionObtenida[1];
+
+
+		//CREO LA INSTANCIA DE EMPLEADO
+		$empleado = new Empleado($nombre, $dni, $apellido, $sexo, $legajo, $sueldo, $urlFoto);
+
+
+		//CREO EL ARCHIVO TXT
+		$archivo=fopen($urlTxt, "a");
 		$linea = $empleado->toString()."\n";
 		fwrite($archivo, $linea);
 		fclose($archivo);	
 
 
-		$archivo2 = fopen("archivosTP4/".$apellido."-".$nombre.$tipoExtensionObtenida[1], "w");
-		$linea = $
-
+		//CREO LA IMAGEN
+		$archivo2 = fopen("archivosTP3/fotos/".$apellido."-".$nombre.".".$tipoExtensionObtenida[1], "w");
+		move_uploaded_file($path, $urlFoto);
+		fclose($archivo2);
 
 		echo "<a href='Mostrar.php'>Los datos fueron enviados!</a>" ;
 	}	
 	
 	else{
+			var_dump($_FILES);
 			echo "Hay un error en la carga de Archivo";
 	
 	}
