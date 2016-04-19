@@ -18,6 +18,8 @@
 
 	echo "<br>";
 
+	echo "<table><tr><th>Nombre</th><th>Apellido</th><th>Dni</th><th>Sexo</th><th>Legajo</th><th>Sueldo</th>";
+
 	echo $empleado->toString();
 
  ?>
