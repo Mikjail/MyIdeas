@@ -9,12 +9,17 @@ class Fabrica {
 	function __construct($razonSocial){
 		$this->_razonSocial = $razonSocial;
 		$this->_empleados = array();
+		$this->ObtenerEmpleadosTxt();
+	
 	}
 
-	public function AgregarEmpleado($persona)
-	{
-		array_push($this->_empleados, $persona);
-		return true;
+	public function AgregarEmpleado($persona){
+		if (array_push($this->_empleados, $persona)) {
+				$this->EliminarEmpleadosRepetidos();
+				return true;
+			} else{
+				return false;
+			}
 	}
 
 	public function CalcularSueldos(){
@@ -29,7 +34,7 @@ class Fabrica {
 	public function EliminarEmpleados($persona){
 	
 		$key = array_search($persona, $this->_empleados);	
-		if($key== false){
+		if($key == false){
 			return false;
 		}
 		else{
@@ -39,26 +44,57 @@ class Fabrica {
 	
 
 	public function EliminarEmpleadosRepetidos(){
+		//var_dump($this->_empleados);
+
+		//$this->_empleados = array_unique($this->_empleados);	
+
+		//var_dump($this->_empleados);	
+	}
+
+	public static function Guardar($fabrica){
+	
+		$archivo = fopen("archivosTP3/empleados.txt", "a");
+		$linea = $fabrica->ToString();
+		fwrite($archivo, $linea);
+
+		fclose($archivo);
+
+
+		echo "<a href='Mostrar.php'>Los datos fueron guardados!</a>" ;
 			
-		//Before
-		var_dump($this->_empleados);
-		echo "<hr>";
+	}
 
+	private function ObtenerEmpleadosTxt(){
+		if (file_exists("archivosTP3/empleados.txt")) {
+				
+			$archivo= fopen("archivosTP3/empleados.txt", "r");
+			while(!feof($archivo)){
+				$line = fgets($archivo);
+				$arrayEmpleado = explode(" ", $line);
+				$empleado = new Empleado($arrayEmpleado[1],
+					$arrayEmpleado[3],
+					$arrayEmpleado[2],
+					$arrayEmpleado[4],
+					$arrayEmpleado[5],
+					$arrayEmpleado[6],
+					$arrayEmpleado[7]);
+		
+					$this->AgregarEmpleado($empleado);
+				}
+			
+		}
+	}
 
-		$this->_empleados = array_unique($this->_empleados);
-		
-		//After
-		var_dump($this->_empleados);
-		
+	public static function ToArrayEmpleados($fabrica){
+		return $fabrica->_empleados;
 	}
 
 	public function ToString(){
-		$retorno =  "Razon Social: ".$this->_razonSocial."<br>";
+		$retorno = $this->_razonSocial." ";
 		foreach ($this->_empleados as $empleado) {
-			$retorno .= $empleado->ToString();
+			$retorno .= $empleado->ToString()."\n";
 		}
 		return $retorno;
 	}
 }
-
  ?>

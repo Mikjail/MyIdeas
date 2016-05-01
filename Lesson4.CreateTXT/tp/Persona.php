@@ -28,15 +28,15 @@
 		return $this->sexo;	
 	}
 
-	public function Hablar(string $idioma){
+	public function Hablar($idioma){
 		return $idioma;
 	}
 
 	public function ToString(){
-		return 	/*"<br>Nombre: ".*/$this->nombre."<br>".
-				/*"Apellido: ".*/$this->apellido."<br>".
-			   	/*"Dni: ".*/$this->dni."<br>".
-			   	/*"Sexo: ".*/$this->sexo."<br>";
+		return 	/*"<br>Nombre: ".*/$this->nombre." ".
+				/*"Apellido: ".*/$this->apellido." ".
+			   	/*"Dni: ".*/$this->dni." ".
+			   	/*"Sexo: ".*/$this->sexo." ";
 	}
 	
 }
