@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="./JavaScript/jquery.js"></script>
+	<script type="text/javascript" src="./JavaScript/funciones.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Items</h1>
+		<div class="col-md-offset-2 col-md-4">
+			<div class="divFrm">
+				<div class="form-group">
+					<label for="CodBarra">Cod. Barras</label>
+					<input type="text" name="codBarra" id="codBarra">
+				</div>
+				<div class="form-group">
+					<label for="Nombre">Nombre</label>
+					<input type="text" name="nombre" id="nombre">
+				</div>
+
+				<div class="form-group">
+					<label for="Archivo"></label>
+					<input type="file" name="archivo" id="archivo" onchange="SubirFoto()">
+				</div>
+				<div class="form-group">
+					<input type="button" name="enviar" class="enviar" value="Guardar" onclick="AgregarProducto()">
+					<input type="hidden" id="hdnQueHago" value="agregar" />
+					<input type="button" name"limpiar" value="limpiar" id="hdnLimpiar" onclick="LimpiarInput()">
+				</div>
+			</div>
+			<div class="col-md-2" id="divFoto">
+			
+		</div>
+		</div>
+		<div class="col-md-6" id="divGrilla">
+			
+		</div>
+		
+
+	</div>
+</body>
+</html>

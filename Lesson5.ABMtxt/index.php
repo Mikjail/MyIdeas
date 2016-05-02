@@ -1,39 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<script src="js/jquery.js"></script>
-	<script src="js/funciones.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/style.css">
+<?php
 
-	<meta charset="UTF-8">
-	<title>Document</title>
+require_once("clases\producto.php");
+$tituloVentana = "PRODUCTOS - con archivos, AJAX, JQUERY y JSON -";
+?>
+<html>
+<head>
+	<title> <?php echo $tituloVentana; ?> </title>
+	  
+		<!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="./JavaScript/funciones.js"></script>
+		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 	<div class="container">
-		<h1>Items</h1>
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="CodBarras">Cod. Barras</label>
-				<input type="text" name="codBarras" id="codBarras">
-			</div>
-			<div class="form-group">
-				<label for="Nombre">Nombre</label>
-				<input type="text" name="nombre" id="nombre">
-			</div>
-
-			<div class="form-group">
-				<label for="Archivo"></label>
-				<input type="file" name="archivo" id="archivo">
-			</div>
-			<div class="form-group">
-				<input type="submit" name="enviar" class="enviar" value="Guardar" onclick="AgregarProducto()">
-				<input type="hidden" id="hdnQueHago" value="agregar" />
-			</div>
+		<div class="page-header">
+			<h1>PRODUCTOS</h1>      
 		</div>
-		<div class="col-md-6" id="divGrilla">
-			
+		<div class="CajaInicio" style="width:1100px">
+			<h1>Ejemplo ABM-LISTADO - con archivos, AJAX, JQUERY y JSON - </h1>
+			<table>
+				<tbody>
+					<tr>
+						<td width="50%">
+							<div id="divFrm" style="height:250px;overflow:auto;margin-top:20px">
+								<input type="text" name="codBarra" id="codBarra" placeholder="Ingrese c&oacute;digo de barras" />
+								<input type="text" name="nombre" id="nombre" placeholder="Ingrese nombre" />
+								<input type="file" name="archivo" id="archivo" onchange="SubirFoto()" /> 
+								
+								<input type="button" class="MiBotonUTN" onclick="AgregarProducto()" value="Guardar"  />
+								<input type="hidden" id="hdnQueHago" value="agregar" />
+							</div>
+						</td>
+						<td rowspan="2">
+							<div id="divGrilla" style="height:610px;overflow:auto;border-style:solid">
+							
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="divFoto" style="height:350px;overflow:auto">
+							
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </body>
