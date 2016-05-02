@@ -43,7 +43,6 @@ while(!feof($archivo)){
 
 		foreach(Fabrica::ToArrayEmpleados($fabrica) as $empl){
 			$mostrarEmp = explode(" ",$empl->ToString());
-			
 			echo "<tr>
 			<td>".$mostrarEmp[0]."</td>
 			<td>".$mostrarEmp[1]."</td>

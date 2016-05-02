@@ -1,0 +1,49 @@
+
+/*******************************NAVBAR***************************************/
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+/*************************************************************************/
+.ejercicio{
+	
+	background-color: #C8C1C1;
+	color: #000000;
+}
+.btn-default{
+	width: 80%;
+	background-color: #B83838;
+	color: #FFFFFF;
+}
+
+.clear{
+	clear: both;
+}
+.task{
+	background-color: #C8C1C1;
+	margin-bottom: 10px;
+}
+h1,h2,h3,h4,h5{
+	text-align: center;
+}
+h2{
+	color:#B83838 ;
+}

@@ -53,7 +53,7 @@ class Fabrica {
 
 	public static function Guardar($fabrica){
 	
-		$archivo = fopen("archivosTP3/empleados.txt", "a");
+		$archivo = fopen("archivosTP3/empleados.txt","a");
 		$linea = $fabrica->ToString();
 		fwrite($archivo, $linea);
 
@@ -65,34 +65,36 @@ class Fabrica {
 	}
 
 	private function ObtenerEmpleadosTxt(){
-		if (file_exists("archivosTP3/empleados.txt")) {
+		if (file_exists("archivosTP3/empleados.txt")){
 				
-			$archivo= fopen("archivosTP3/empleados.txt", "r");
+			$archivo = fopen("archivosTP3/empleados.txt", "r");
 			while(!feof($archivo)){
 				$line = fgets($archivo);
 				$arrayEmpleado = explode(" ", $line);
-				$empleado = new Empleado($arrayEmpleado[1],
-					$arrayEmpleado[3],
-					$arrayEmpleado[2],
-					$arrayEmpleado[4],
-					$arrayEmpleado[5],
-					$arrayEmpleado[6],
-					$arrayEmpleado[7]);
-		
-					$this->AgregarEmpleado($empleado);
+				if($arrayEmpleado[0] !=""){
+					$empleado = new Empleado($arrayEmpleado[1],
+						$arrayEmpleado[3],
+						$arrayEmpleado[2],
+						$arrayEmpleado[4],
+						$arrayEmpleado[5],
+						$arrayEmpleado[6],
+						$arrayEmpleado[7]);
+						$this->AgregarEmpleado($empleado);
 				}
-			
+			}
 		}
 	}
+	
 
 	public static function ToArrayEmpleados($fabrica){
 		return $fabrica->_empleados;
 	}
 
 	public function ToString(){
-		$retorno = $this->_razonSocial." ";
+
+		$retorno= $this->_razonSocial." ";
 		foreach ($this->_empleados as $empleado) {
-			$retorno .= $empleado->ToString()."\n";
+			$retorno .=$empleado->ToString()."\n";
 		}
 		return $retorno;
 	}
