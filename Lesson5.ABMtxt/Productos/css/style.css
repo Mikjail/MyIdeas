@@ -1,0 +1,32 @@
+h1{
+	text-align: center;
+}
+.container{
+	background-image: url("../img/bg.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 500px 300px;
+}
+#divGrilla{
+	background-color: #F3EFEF;
+	opacity: 0.9;
+	font-weight: bold;
+}
+
+.btn-default{
+	font-weight: bold;
+}
+
+.btn-default:hover{
+	background-color: #E55C5C;
+
+}
+.form-group{
+	margin-top: 20%;
+}
+.contenedor{
+	background-color: #F3EFEF;
+	opacity: 0.9;
+	font-weight: bold;
+	border: 2px solid black;
+}
