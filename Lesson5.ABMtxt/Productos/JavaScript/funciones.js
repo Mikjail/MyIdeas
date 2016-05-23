@@ -157,7 +157,7 @@ function AgregarProducto(){
 	.fail(function (jqXHR, textStatus, errorThrown) {
         alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
     });    
-		
+	return;
 }
 
 function EliminarProducto(producto){
@@ -192,20 +192,24 @@ function EliminarProducto(producto){
 	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
         alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
-    });    
-	
+    }); 
+
+	return;
 }
+	// TRAEMOS EL ARCHIVO QUE QUEREMOS MODIFICAR A LOS INPUT.
+	// ADEMAS DE TRAER LOS DATOS, AGREGAMOS UN INPUT TYPE HIDDEN,
+	// ESTE INPUT TRAERÁ EL URL DEL ARCHIVO PARA QUE LUEGO EN CASO
+	// DE QUERER SUBIRLO CON LA MISMA FOTO LA TOME DE DICHO INPUT
+
 function ModificarProducto(objJson){
+
 
 	$("#codBarra").val(objJson.codBarra);
 	$("#nombre").val(objJson.nombre);
-	$("#hdnArchivoTemp").val(objJson.archTmp);
 	$("#hdnLimpiar").prop('display', 'inline');
-	$("#divFoto").html("<img src=archivos/"+objJson.archTmp+"width='100px' height='100px' alt=/>");
-
+	$("#divFoto").html("<img src=archivos/"+objJson.archTmp+"width='100px' height='100px' alt=/> <input type='hidden' id='hdnArchivoTemp' value="+objJson.archTmp+"/>");
 	$("#hdnQueHago").val("modificar");
 	
-	$("#codBarra").attr("readonly", "readonly");
 }
 
 function Validar(objJson){
@@ -223,4 +227,5 @@ function LimpiarInput(){
 		$("#archivo").val("");
 		$("#codBarra").val("");
 		$("#nombre").val("");
+		return;
 }

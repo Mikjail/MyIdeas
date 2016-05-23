@@ -38,7 +38,7 @@ class Producto
 
 //--------------------------------------------------------------------------------//
 //--CONSTRUCTOR
-	public function __construct($codBarra=NULL, $nombre=NULL, $pathFoto=NULL)
+	public function __construct($codBarra=NULL, $nombre=NULL, $pathFoto)
 	{
 		if($codBarra !== NULL && $nombre !== NULL){
 			$this->codBarra = $codBarra;
@@ -62,7 +62,7 @@ class Producto
 		$resultado = FALSE;
 		
 		//ABRO EL ARCHIVO
-		$ar = fopen("archivos/productos.txt", "a");
+		$ar = fopen("./archivos/productos.txt", "a");
 		
 		//ESCRIBO EN EL ARCHIVO
 		$cant = fwrite($ar, $obj->ToString());
@@ -118,7 +118,7 @@ class Producto
 		array_push($ListaDeProductos, $obj);//agrego el producto modificado
 		
 		//BORRO LA IMAGEN ANTERIOR
-		unlink("archivos/".$imagenParaBorrar);
+		unlink("./archivos/".$imagenParaBorrar);
 		
 		//ABRO EL ARCHIVO
 		$ar = fopen("archivos/productos.txt", "w");
@@ -159,7 +159,7 @@ class Producto
 		}
 
 		//BORRO LA IMAGEN ANTERIOR
-		unlink("archivos/".$imagenParaBorrar);
+		unlink("./archivos/".$imagenParaBorrar);
 		
 		//ABRO EL ARCHIVO
 		$ar = fopen("archivos/productos.txt", "w");
