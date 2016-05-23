@@ -42,6 +42,7 @@ while(!feof($archivo)){
 		<th>Foto</th>";
 
 		foreach(Fabrica::ToArrayEmpleados($fabrica) as $empl){
+		
 			$mostrarEmp = explode(" ",$empl->ToString());
 			echo "<tr>
 			<td>".$mostrarEmp[0]."</td>

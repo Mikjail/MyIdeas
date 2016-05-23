@@ -207,10 +207,8 @@ function Modificarpersona(persona){
 	$("#correo").val(persona.correo);
 	$("#hdnLimpiar").prop('display', 'inline');
 	$("#divFoto").html("<img src=archivos/"+persona.archTmp+" width='100px' height='100px' alt=/>");
-
 	$("#hdnQueHago").val("modificar");
 	
-	$("#nombre").attr("readonly", "readonly");
 }
 
 function Validar(objJson){
