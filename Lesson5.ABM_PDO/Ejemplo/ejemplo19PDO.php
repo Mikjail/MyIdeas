@@ -7,6 +7,7 @@
           <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
+        <script src="./js/funciones.js"></script>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -22,49 +23,52 @@
             <div class="jumbotron">
                 <h3 class="text-info">Método de instancia para Modificar.</h3>
                     <div class="well well-sm text-info">
-                                 $arraysDeCd =cd::TraerTodoLosCds();<br>
-                                 echo "creo la tabla"<br>
-                                
+                       
+                                    include_once ("clases/AccesoDatos.php");
+                                    include_once ("clases/persona.php");
+                                 $arraysDePersonas =Persona::TraerTodasLaspersonas();
+                                 <br> creo la tabla<br>
 
-
-                                  foreach ($arraysDeCd as $cd) {<br>
+                                  foreach ($arraysDePersonas as $persona) {
+                                    <br>
                                    //formo el contenido de las celdas<br>
-                                  }<br>
-                                  echo" cierro la tabla"; <br>
-                                    ?><br>
+                                    $persona->nombre;
+                                  }
+                                <br> cierro la tabla<br>
+                                    <br>
                                  
 
 
                                     
                     </div>
              </div>
-             <h3 >  Método de la clase  </h3>
+             <h3 >  Método de la clase Persona::BorrarPorID </h3>
                                     <?php
                                     include_once ("clases/AccesoDatos.php");
-                                    include_once ("clases/cd.php");
+                                    include_once ("clases/persona.php");
 
-                                   $arraysDeCd =cd::TraerTodoLosCds();
+                                   $arraysDePersonas =Persona::TraerTodasLasPersonas();
 
                                   echo" <table class='table  '>
                                     <thead>
                                       <tr>
                                         <th>Modificar</th>
                                         <th>borrar</th>
-                                        <th>Cantante</th>
-                                        <th>titulo</th>
-                                        <th>año</th>
+                                        <th>Legajo</th>
+                                        <th>Nombre</th>
+                                        <th>Edad</th>
                                       </tr>
                                     </thead>";
 
 
 
-                                  foreach ($arraysDeCd as $cd) {
+                                  foreach ($arraysDePersonas as $persona) {
                                     echo "<tr>
-                                        <td> <a class='btn btn-warning' onClick=modificar($cd->id) >Modificar</a></td>
-                                        <td> <a class='btn btn-danger' onClick=modificar($cd->id)>Borrar</a></td>
-                                        <td>$cd->cantante</td>
-                                        <td>$cd->titulo</td>
-                                        <td>$cd->año</td>
+                                        <td> <a class='btn btn-warning' onClick=Modificar($persona->id) >Modificar</a></td>
+                                        <td> <a class='btn btn-danger' onClick=BorrarPorIdOrNombre($persona->id)>Borrar</a></td>
+                                        <td>$persona->legajo</td>
+                                        <td>$persona->nombre</td>
+                                        <td>$persona->edad</td>
                                       </tr>";
                                   }
                                   echo" </table>"; 

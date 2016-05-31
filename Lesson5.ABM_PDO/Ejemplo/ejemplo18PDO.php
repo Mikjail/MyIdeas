@@ -24,15 +24,15 @@
                     <div class="well well-sm text-info">
                                   class cd
                                     {<br>
-                                    public static function BorrarCdPorAnio($año)
+                                    public static function BorrarPersonaPorNombre($nombre)
                                    {<br>
 
                                       $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); <br>
                                       $consulta =$objetoAccesoDato->RetornarConsulta("<br>
                                         delete <br>
-                                        from cds        <br>
-                                        WHERE jahr=:anio"); <br>
-                                        $consulta->bindValue(':anio',$año, PDO::PARAM_INT);   <br>
+                                        from personas        <br>
+                                        WHERE nombre=:nombre"); <br>
+                                        $consulta->bindValue(':nombre',$nombre, PDO::PARAM_INT);   <br>
                                         $consulta->execute();<br>
                                         return $consulta->rowCount();<br>
 
@@ -41,7 +41,7 @@
                                     }<br>
                                     //utilización del método estático<br>
                                    
-                                   $cantidadDeAfectadas =cd::BorrarCdPorAnio(2015);
+                                   $cantidadDeAfectadas =Persona::BorrarPersonaPorNombre(nombre);
                                     print("filas afectadas :$cantidadDeAfectadas<br>");
                                   
                                  
@@ -50,16 +50,35 @@
                                     
                     </div>
              </div>
-             <h3 >  Método de la clase  </h3>
+             <h3 >  Método de la clase Borrar por Persona::BorrarPorNombre </h3>
+
                                     <?php
                                     include_once ("clases/AccesoDatos.php");
-                                    include_once ("clases/cd.php");
+                                    include_once ("clases/persona.php");
 
-                                   $cantidadDeAfectadas =cd::BorrarCdPorAnio(2015);
-                                    print("filas afectadas :$cantidadDeAfectadas<br>");
-                                  
+                                   $arraysDePersonas =Persona::TraerTodasLasPersonas();
+
+                                  echo" <table class='table  '>
+                                    <thead>
+                                      <tr>
+                                        <th>Borrar</th>
+                                        <th>Legajo</th>
+                                        <th>Nombre</th>
+                                        <th>Edad</th>
+                                      </tr>
+                                    </thead>";
+
+                                    foreach ($arraysDePersonas as $persona) {
+                                    echo "<tr>
+                                        <td> <a class='btn btn-danger' onClick=BorrarPorIdOrNombre  ($persona->nombre)>Borrar</a></td>
+                                        <td>$persona->legajo</td>
+                                        <td>$persona->nombre</td>
+                                        <td>$persona->edad</td>
+                                      </tr>";
+                                  }
+                                  echo" </table>"; 
+                                    ?>                              
                                  
-                                    ?>
                             <a class="btn btn-info" href="indexPDO.html">Menu principal</a>
 
 
