@@ -1,8 +1,6 @@
 <?php
   session_start();
-?>
 
-<?php
 if (!isset($_SESSION['usuario'])){
       # code...
     
@@ -13,7 +11,7 @@ if (!isset($_SESSION['usuario'])){
 	<div class= "container logInForm col-md-4 col-md-offset-4">
 		<h1 style= "text-align: center;">UTN - Login</h1>
 		<hr>
-		<form data-toggle="validator" onsubmit="validarLogin();return false;">
+		<form data-toggle="validator" onsubmit="validarLogin(); return false;">
 			
 			<div class="form-group">
 			    <label for="inputName" class="control-label">User Name</label>
@@ -38,9 +36,9 @@ if (!isset($_SESSION['usuario'])){
 			<br> 
 			<br>
 			<a href="#" class="col-md-12" style="text-align: center;">Forgot my password</a>
-
+			
 		</form>		
-</div>
+	</div>
 		<?php 
   }else{
 

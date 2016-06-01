@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<title>Sign Up Form</title>
-	<meta charset="utf-8">
-	<meta name="description" content="Sign In">
-	<meta name="keywords" content="Home">
-	<meta name="author" content="Mikjail Salazar">
-
-	<script src="js/jquery.js"></script> 
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/myquery.js"></script>
-	<script src="js/validator.js"></script>
-	<script src="js/validator.min.js"></script>
-	
-
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-</head>
-<body>
 
 	<div class= "container signUpForm" >
 		<h1 style= "text-align: center;">UTN - Sign Up</h1>
@@ -73,6 +51,3 @@
 		</form>
 
 	</div>
-
-</body>
-</html>

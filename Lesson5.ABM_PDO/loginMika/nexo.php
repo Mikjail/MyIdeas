@@ -6,9 +6,9 @@ $queHago=$_POST['queHacer'];
 switch ($queHago) {
 	
 	case 'MostrarGrilla':
-			include("partes/GrillaProductos.php");
+			include("partes/GrillaEntidades.php");
 		break;
-	case 'MostarLogin':
+	case 'MostrarLogin':
 			include("partes/logIn.php");
 		break;
 	case 'MostrarFormAlta':

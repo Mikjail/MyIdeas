@@ -9,7 +9,7 @@ function validarLogin()
 	recordar = $("#rememberMe").is(":checked");
 
 	alert(usuario, clave, recordar);
-	var funcionAjax = $.ajax({
+	var funcionAjax=$.ajax({
 		type: "POST",
 		url: "php/validarUsuario.php",
 		data: 
@@ -23,6 +23,8 @@ function validarLogin()
 	funcionAjax.done(function (respuesta){
 		alert(respuesta);
 	});
+
+	Mostrar('MostrarLogin');
 		
 }
 function deslogear()
@@ -32,7 +34,7 @@ function deslogear()
 		type:"post"		
 	});
 	funcionAjax.done(function(retorno){
-			MostarBotones();
+		
 			MostarLogin();
 			$("#usuario").val("Sin usuario.");
 			$("#BotonLogin").html("Login<br>-Sesión-");
@@ -40,4 +42,5 @@ function deslogear()
 			$("#BotonLogin").addClass("btn-primary");
 			
 	});	
+	Mostrar('MostrarLogin');
 }

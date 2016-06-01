@@ -1,158 +1,162 @@
 <?php
-class cd
+class Entidad
 {
-	public $id;
- 	public $titulo;
-  	public $cantante;
-  	public $año;
+	public $id;// id
+ 	public $descripcion;//titulo
+  	public $marca;//cantante
+  	public $fecha;//año
+  	public $tipo;
 
-  	public function BorrarCd()
+  	public function BorrarEntidad()
 	 {
 	 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
 				delete 
-				from cds 				
+				from entidades 				
 				WHERE id=:id");	
 				$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
 				$consulta->execute();
 				return $consulta->rowCount();
 	 }
 
-	public static function BorrarCdPorAnio($año)
+	public static function BorrarEntidadPorId($id)
 	 {
 
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
 				delete 
-				from cds 				
-				WHERE jahr=:anio");	
-				$consulta->bindValue(':anio',$año, PDO::PARAM_INT);		
+				from entidades 				
+				WHERE id=:id");	
+				$consulta->bindValue(':id',$id, PDO::PARAM_INT);		
 				$consulta->execute();
 				return $consulta->rowCount();
 
 	 }
-	public function ModificarCd()
+	public function ModificarEntidad()
 	 {
 
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
-				update cds 
-				set titel='$this->titulo',
-				interpret='$this->cantante',
-				jahr='$this->año'
+				update entidades 
+				set descripcion='$this->descripcion',
+				marca='$this->marca',
+				fecha='$this->fecha',
+				tipo = '$this->tipo'
 				WHERE id='$this->id'");
 			return $consulta->execute();
 
 	 }
 	
   
-	 public function InsertarElCd()
+	 public function InsertarLaEntidad()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into cds (titel,interpret,jahr)values('$this->titulo','$this->cantante','$this->año')");
+				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into entidades (descripcion,marca,fecha,tipo)values('$this->descripcion','$this->marca','$this->fecha','$this->tipo'");
 				$consulta->execute();
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 				
 
 	 }
 
-	  public function ModificarCdParametros()
+	  public function ModificarEntidadParametros()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
-				update cds 
-				set titel=:titulo,
-				interpret=:cantante,
-				jahr=:anio
+				update entidades 
+				set descripcion=:descripcion,
+				marca=:marca,
+				fecha=:fecha,
+				tipo=:tipo
 				WHERE id=:id");
 			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
-			$consulta->bindValue(':titulo',$this->titulo, PDO::PARAM_INT);
-			$consulta->bindValue(':anio', $this->año, PDO::PARAM_STR);
-			$consulta->bindValue(':cantante', $this->cantante, PDO::PARAM_STR);
+			$consulta->bindValue(':descripcion',$this->descripcion, PDO::PARAM_INT);
+			$consulta->bindValue(':fecha', $this->fecha, PDO::PARAM_STR);
+			$consulta->bindValue(':marca', $this->marca, PDO::PARAM_STR);
+			$consulta->bindValue(':tipo', $this->tipo, PDO::PARAM_STR);
 			return $consulta->execute();
 	 }
 
-	 public function InsertarElCdParametros()
+	 public function InsertarLaEntidadParametros()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into cds (titel,interpret,jahr)values(:titulo,:cantante,:anio)");
-				$consulta->bindValue(':titulo',$this->titulo, PDO::PARAM_INT);
-				$consulta->bindValue(':anio', $this->año, PDO::PARAM_STR);
-				$consulta->bindValue(':cantante', $this->cantante, PDO::PARAM_STR);
+				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into entidades (descripcion,marca,fecha)values(:descripcion,:marca,:fecha)");
+				$consulta->bindValue(':descripcion',$this->descripcion, PDO::PARAM_INT);
+				$consulta->bindValue(':fecha', $this->fecha, PDO::PARAM_STR);
+				$consulta->bindValue(':marca', $this->marca, PDO::PARAM_STR);
+				$consulta->bindValue(':tipo', $this->tipo, PDO::PARAM_STR);
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
-	 public function GuardarCD()
+	 public function GuardarEntidad()
 	 {
 
 	 	if($this->id>0)
 	 		{
-	 			$this->ModificarCdParametros();
+	 			$this->ModificarEntidadParametros();
 	 		}else {
-	 			$this->InsertarElCdParametros();
+	 			$this->InsertarLaEntidadParametros();
 	 		}
 
 	 }
 
 
-  	public static function TraerTodoLosCds()
+  	public static function TraerTodasLasEntidades()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id,titel as titulo, interpret as cantante,jahr as año from cds");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id,descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades");
 			$consulta->execute();			
-			return $consulta->fetchAll(PDO::FETCH_CLASS, "cd");		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "Entidad");		
 	}
 
-	public static function TraerUnCd($id) 
+	public static function TraerUnaEntidad($id) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id, titel as titulo, interpret as cantante,jahr as año from cds where id = $id");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades where id = $id");
 			$consulta->execute();
-			$cdBuscado= $consulta->fetchObject('cd');
-			return $cdBuscado;				
+			$entidadBuscada= $consulta->fetchObject('Entidad');
+			return $entidadBuscada;				
 
 			
 	}
 
-	public static function TraerUnCdAnio($id,$anio) 
+	public static function TraerUnaEntidadNombre($nombre) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select  titel as titulo, interpret as cantante,jahr as año from cds  WHERE id=? AND jahr=?");
-			$consulta->execute(array($id, $anio));
-			$cdBuscado= $consulta->fetchObject('cd');
-      		return $cdBuscado;				
+			$consulta =$objetoAccesoDato->RetornarConsulta("select  descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades  WHERE nombre=?");
+			$consulta->execute(array($nombre));
+			$entidadBuscada= $consulta->fetchObject('Entidad');
+      		return $entidadBuscada;				
 
 			
 	}
 
-	public static function TraerUnCdAnioParamNombre($id,$anio) 
+	public static function TraerUnaEntidadMarca($marca) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select  titel as titulo, interpret as cantante,jahr as año from cds  WHERE id=:id AND jahr=:anio");
-			$consulta->bindValue(':id', $id, PDO::PARAM_INT);
-			$consulta->bindValue(':anio', $anio, PDO::PARAM_STR);
+			$consulta =$objetoAccesoDato->RetornarConsulta("select  descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades  WHERE marca=:marca");
+			$consulta->execute(array($marca));
 			$consulta->execute();
-			$cdBuscado= $consulta->fetchObject('cd');
-      		return $cdBuscado;				
+			$entidadBuscada= $consulta->fetchObject('Entidad');
+      		return $entidadBuscada;				
 
 			
 	}
 	
-	public static function TraerUnCdAnioParamNombreArray($id,$anio) 
+	public static function TraerUnaEntidadArayTipo($tipo) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select  titel as titulo, interpret as cantante,jahr as año from cds  WHERE id=:id AND jahr=:anio");
-			$consulta->execute(array(':id'=> $id,':anio'=> $anio));
+			$consulta =$objetoAccesoDato->RetornarConsulta("select  descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades  WHERE nombre=:nombre");
+			$consulta->execute(array(':tipo'=> $tipo));
 			$consulta->execute();
-			$cdBuscado= $consulta->fetchObject('cd');
-      		return $cdBuscado;				
+			$entidadBuscada= $consulta->fetchObject('Entidad');
+      		return $entidadBuscada;				
 
 			
 	}
 
 	public function mostrarDatos()
 	{
-	  	return "Metodo mostar:".$this->titulo."  ".$this->cantante."  ".$this->año;
+	  	return "Metodo mostar:".$this->descripcion."  ".$this->marca."  ".$this->fecha;
 	}
 
 }
