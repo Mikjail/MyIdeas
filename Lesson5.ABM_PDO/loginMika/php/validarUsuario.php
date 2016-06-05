@@ -9,10 +9,15 @@ $recordar=$_POST['recordarme'];
 $retorno;
 
 	if($usuario=="admin" && $clave=="admin")
-	{			
+	{
 		//$_SESSION['registrado']="admin";
 		$_SESSION["usuario"] = "admin"; 
 
+		$retorno=$_SESSION["usuario"];
+	}
+	if ($usuario=="user" && $clave == "user") {
+		
+		$_SESSION["usuario"] = "user";
 		$retorno=$_SESSION["usuario"];
 	}
 	else

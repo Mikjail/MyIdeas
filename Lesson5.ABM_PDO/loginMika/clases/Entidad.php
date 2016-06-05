@@ -1,11 +1,14 @@
 <?php
+include_once("AccesoDatos.php");
+include_once("archivo.php");
 class Entidad
 {
-	public $id;// id
- 	public $descripcion;//titulo
-  	public $marca;//cantante
-  	public $fecha;//año
+	public $id;
+ 	public $descripcion;
+  	public $marca;
+  	public $fecha;
   	public $tipo;
+  	public $foto;
 
   	public function BorrarEntidad()
 	 {
@@ -54,8 +57,6 @@ class Entidad
 				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into entidades (descripcion,marca,fecha,tipo)values('$this->descripcion','$this->marca','$this->fecha','$this->tipo'");
 				$consulta->execute();
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
-				
-
 	 }
 
 	  public function ModificarEntidadParametros()
@@ -79,22 +80,28 @@ class Entidad
 	 public function InsertarLaEntidadParametros()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into entidades (descripcion,marca,fecha)values(:descripcion,:marca,:fecha)");
-				$consulta->bindValue(':descripcion',$this->descripcion, PDO::PARAM_INT);
+				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into entidades (descripcion, marca, fecha, tipo) values (:descripcion,:marca,:fecha,:tipo)");
+				$consulta->bindValue(':descripcion',$this->descripcion, PDO::PARAM_STR);
 				$consulta->bindValue(':fecha', $this->fecha, PDO::PARAM_STR);
 				$consulta->bindValue(':marca', $this->marca, PDO::PARAM_STR);
 				$consulta->bindValue(':tipo', $this->tipo, PDO::PARAM_STR);
-				$consulta->execute();		
+				$consulta->execute();	
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
+
 	 public function GuardarEntidad()
 	 {
 
 	 	if($this->id>0)
 	 		{
-	 			$this->ModificarEntidadParametros();
-	 		}else {
-	 			$this->InsertarLaEntidadParametros();
+
+	 			return	$this->ModificarEntidadParametros();
+	 		
+	 		}
+	 		else {
+
+	 			return	$this->InsertarLaEntidadParametros();
+	 		
 	 		}
 
 	 }
@@ -103,7 +110,7 @@ class Entidad
   	public static function TraerTodasLasEntidades()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id,descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id as id,descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades");
 			$consulta->execute();			
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "Entidad");		
 	}
@@ -111,7 +118,7 @@ class Entidad
 	public static function TraerUnaEntidad($id) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id, descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades where id = $id");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id as id, descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades where id = $id");
 			$consulta->execute();
 			$entidadBuscada= $consulta->fetchObject('Entidad');
 			return $entidadBuscada;				
@@ -122,7 +129,7 @@ class Entidad
 	public static function TraerUnaEntidadNombre($nombre) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select  descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades  WHERE nombre=?");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select  id as id, descripcion as descripcion, marca as marca,fecha as fecha, tipo as tipo from entidades  WHERE nombre=?");
 			$consulta->execute(array($nombre));
 			$entidadBuscada= $consulta->fetchObject('Entidad');
       		return $entidadBuscada;				
@@ -157,6 +164,10 @@ class Entidad
 	public function mostrarDatos()
 	{
 	  	return "Metodo mostar:".$this->descripcion."  ".$this->marca."  ".$this->fecha;
+	}
+
+	public function IngresarFoto(){
+
 	}
 
 }

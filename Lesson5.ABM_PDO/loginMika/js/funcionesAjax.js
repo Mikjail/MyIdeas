@@ -42,7 +42,7 @@ function Mostrar(queMostrar)
 	});
 	funcionAjax.done(function(retorno){
 		$("#home").html(retorno);
-		$("#informe").html("Correcto!!!");	
+		//$("#informe").html("Correcto!!!");	
 	});
 	funcionAjax.fail(function(retorno){
 		$("#home").html(":(");
