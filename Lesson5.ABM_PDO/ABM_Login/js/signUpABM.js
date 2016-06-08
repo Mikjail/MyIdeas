@@ -96,3 +96,14 @@ function SubirFotoUsuario(){
         alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
     });   
 }
+
+function ModificarUsuario(){
+	alert("dasda");
+
+	$(".inputFormul").attr("readonly",false);
+	$(".inputFormul").css("border-color", "#3AAE63");
+	$("#inputMostrar").show();
+	$(".helpValidacion").show();
+	$("#btnModificar").toggle();
+	$("#btnGuardar").toggle();
+}
