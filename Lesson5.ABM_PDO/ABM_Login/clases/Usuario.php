@@ -4,9 +4,9 @@ include_once("archivoUsuario.php");
 class Usuario
 {
 	public $id;
-	public $mail;//tipo
- 	public $nombre;//nombre
-  	public $tipo;//mail
+	public $mail;
+ 	public $nombre;
+  	public $tipo;
   	public $clave;
   	public $foto;//foto
 
@@ -119,7 +119,7 @@ class Usuario
 	public static function TraerUnUsuario($nombre) 
 	{
 			$objetoAccesoDato = AccesoDatosUsuario::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select nombre as nombre, mail as mail, clave as clave, tipo as tipo from usuarios where nombre = $nombre");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id as id, nombre as nombre, mail as mail, clave as clave, tipo as tipo from usuarios where nombre = $nombre");
 			$consulta->execute();
 			$usuarioBuscado= $consulta->fetchObject('Usuario');
 			return $usuarioBuscado;				

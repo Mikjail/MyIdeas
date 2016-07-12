@@ -9,7 +9,7 @@ function BorrarUsuario(idParametro)
 		}
 	});
 	funcionAjax.done(function(retorno){
-		Mostrar("MostrarGrilla");
+		Mostrar("MostrarUsuarios");
 		$("#informe").html("cantidad de eliminados "+ retorno);	
 		
 	});
@@ -22,10 +22,17 @@ function GuardarUsuario()
 {
 
 	var id = $("#idEntidad").val();
-	var tipo=$("#tipo:checked").val();
+	var tipo;
+	if (id > 0) {		
+		//en caso de que sea una modificacion toma de un button hidden el id
+		tipo = $("#tipo").val();
+	}
+	else{
+		tipo = $("#tipo:checked").val();
+	}
 	var nombre=$("#nombre").val();
 	var mail=$("#mail").val();
-	var clave=$("#clave").val();
+	var clave=$("#password").val();
 	var descFoto=$("#fotoDescr").val();
 		
 	var funcionAjax=$.ajax({
@@ -42,7 +49,8 @@ function GuardarUsuario()
 	});
 	funcionAjax.done(function(retorno){
 		$("#informe").html("Informe: " + retorno);
-		location.reload();
+		alert(retorno);
+		Mostrar("MostrarUsuarios");
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText+"Algo esta mal!");	

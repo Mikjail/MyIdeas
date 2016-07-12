@@ -1,4 +1,33 @@
-function validarLogin()
+function ValidarModificacion(){
+	clave = $("#password").val();
+
+	alert(clave);
+	var funcionAjax = $.ajax({
+		type: "post",
+		url:"php/validarUsuario.php",
+		data:
+		{
+			clave:clave,
+			queHacer:"validarModificacion"
+		}
+	});
+	funcionAjax.done(function (respuesta){
+
+		if (respuesta == "exito" ) {
+		
+			$(".inputFormul").attr("readonly",true);
+			GuardarUsuario();
+		}
+		alert(respuesta);
+	});	
+	
+	funcionAjax.fail(function (respuesta){
+		
+		alert(respuesta);
+	});
+}
+
+function ValidarLogin()
 {
 	var usuario;
 	var clave;
@@ -17,7 +46,8 @@ function validarLogin()
 		{
 		usuario:usuario,
 		clave:clave,
-		recordarme:recordar
+		recordarme:recordar,
+		queHacer: "validarLogin"
 		}
 	});
 

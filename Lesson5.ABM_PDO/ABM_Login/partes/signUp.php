@@ -52,7 +52,7 @@ session_start();
 			<div class="form-group">
 			    <label  for="inputPassword" class="control-label">Password</label>
 			    <div class="form-group">
-			      <input id="clave" type="password" data-minlength="3" pattern="^[_A-z0-9]{1,}$" class="form-control" id="inputPassword" placeholder="Password*" required>
+			      <input id="password" type="password" data-minlength="3" pattern="^[_A-z0-9]{1,}$" class="form-control" id="inputPassword" placeholder="Password*" required>
 			      <div class="help-block">No puede ser menor a 3(Caracteres Especiales Prohibidos).</div>
 		   		</div>
 		   	</div>	
@@ -63,8 +63,8 @@ session_start();
 			</div>
 			<input type="file" id="archivo" onchange="SubirFotoUsuario()">		
 			
-			<input type="hidden" id="idEntidad" value"0">
-			<input type="hidden" id="fotoDescr" value"0">
+			<input type="hidden" id="idEntidad" value="0">
+			<input type="hidden" id="fotoDescr" value="0">
 			<div class="col-md-offset-4" id="divFoto" style="display: none;"></div>
 		
 		</div>

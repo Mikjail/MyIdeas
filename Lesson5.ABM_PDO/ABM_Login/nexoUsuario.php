@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include_once("clases/Usuario.php");
 
 $queHago=$_POST['queHacer'];
@@ -21,7 +22,20 @@ switch ($queHago) {
 			}
 			else{
 				if (ArchivoUsuario::Mover("tempUsu/temporal.jpg","imgUsuario/".$usuario->id."".$usuario->nombre.".jpg")) {
-					echo "Se Modificaron " + $cantidad;
+					$arrayUsuario=Usuario::TraerTodosLosUsuarios();
+
+					foreach ($arrayUsuario as $user) {
+						if ($user->nombre == $usuario->nombre && $user->clave == $usuario->clave) {
+							
+							$_SESSION["usuario"]["id"]= $user->id;
+							$_SESSION["usuario"]["usuario"] = $user->tipo; 
+							$_SESSION["usuario"]["nombre"] = $user->nombre;
+							$_SESSION["usuario"]["email"] = $user->mail;
+							$_SESSION["usuario"]["foto"] = "imgUsuario/".$user->id.$user->nombre.".jpg";
+							
+							echo "exito";	
+						}
+					}
 				}
 				else{
 				echo "Hubo un error moviendo el archio";

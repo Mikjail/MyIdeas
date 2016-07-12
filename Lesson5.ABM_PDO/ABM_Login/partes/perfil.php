@@ -44,15 +44,19 @@ if (isset($_SESSION["usuario"])) {
 				<div class="helpValidacion form-group" style="display: none;">
 			    <label for="inputPassword" class="inputFormul control-label">Ingrese Contraseña para confirmar edición</label>
 			    <div class="form-group">
-			      <input id="password" type="password" name="password" data-minlength="6" pattern="^[_A-z0-9]{1,}$" class="form-control" id="inputPassword" placeholder="Contrasena*" required>
+			      <input id="password" type="password" class="inputFormul form-control" name="password" data-minlength="6" pattern="^[_A-z0-9]{1,}$" class="form-control" id="inputPassword" placeholder="Contrasena*" required>
 		   		</div>
 		   		</div>	
 
+				<input type="hidden" id="idEntidad" value=<?php echo $_SESSION["usuario"]["id"];?> >
+				<input type="hidden" id="fotoDescr" value=<?php echo $_SESSION["usuario"]["foto"];?> >
+ 				<input type="hidden" id="tipo" value=<?php echo $_SESSION["usuario"]["usuario"]; ?> >
+				
+
  				<button id="btnModificar" class="btn btn-default" onclick="ModificarUsuario(); return false;">Modifcar</button>
- 				<button id="btnGuardar" class="btn btn-default" onclick"" style="display: none;">Guardar</button>
+ 				<button id="btnGuardar" class="btn btn-default" onclick="ValidarModificacion(); return false;" style="display: none;">Guardar</button>
  				</form>
  				<h3>Si desea salir presione en el boton logout!</h3>
-				<input type="hidden" id="TipoSesion" value=$_SESSION["usuario"]["usuario"]>
  				
   			</div> 	
 <?php 
